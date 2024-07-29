@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application</title>
+
+    <style>
+        /* Reset and basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px white;
+            width: 400px;
+            background-image: url(https://media.istockphoto.com/id/1349030917/photo/business-and-finance-looking-up-at-high-rise-office-buildings-in-the-financial-district-of-a.jpg?s=612x612&w=0&k=20&c=NSnN0va-f1OBG_GA7bTVmUIoBwNDKUXtHD8_PzeTNiA=);
+
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        span#amountInWords {
+            margin-top: 5px;
+            font-style: italic;
+            color: #888;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .big-button {
+            font-size: 17px;
+            /* Make the text bigger */
+            padding: 7px 15px;
+            /* Increase the padding */
+            background-color: #4CAF50;
+            /* Button background color */
+            color: white;
+            /* Button text color */
+            border: none;
+            /* Remove border */
+            border-radius: 8px;
+            /* Rounded corners */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+        }
+
+        .big-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h1>Loan Application</h1>
+        <form id="loanForm" onsubmit="validateForm()" action="confirm.html">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" required>
+            <small id="nameError" style="color: rgb(243, 241, 241);"></small>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <small id="emailError" style="color: red;"></small>
+
+            <label for="pan">PAN:</label>
+            <input type="text" id="pan" required pattern="[A-Z]{5}[0-9]{4}[A-Z]"
+                title="Please enter PAN in the format ABCDE1234F">
+            <small id="panError" style="color: red;"></small>
+
+            <label for="loanAmount">Loan Amount:</label>
+            <input type="number" id="loanAmount" required max="999999999">
+            <span id="amountInWords"></span>
+
+            <!-- <button onclick="generateOtp()">Generate OTP</button> -->
+            <input type="submit" value="Submit" class="big-button">
+        </form>
+    </div>
+
+    <script src="./index.js"></script>
+
+</body>
+
+</html>
